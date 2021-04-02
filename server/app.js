@@ -1,52 +1,60 @@
 const express = require('express')
-const { v4: uuidv4 } = require('uuid')
+// const { v4: uuidv4 } = require('uuid')
 const cors = require('cors')
 
 const app = express()
 const PORT = 3000
 
-const DB = {
-  todos: []
-}
+let DB = [
+  {
+    questions: [
+      {
+      id: 11,
+      text: 'a',
+      answ: 'a',
+      points: 300,
+      },
+      {
+      id: 12,
+      text: 'b',
+      answ: 'b',
+      points: 400,
+      },
+    ],
+    title: 'ab',
+    id: 1,
+  },
+  {
+    questions: [
+      {
+      id: 21,
+      text: 'c',
+      answ: 'c',
+      points: 300,
+      },
+      {
+      id: 22,
+      text: 'd',
+      answ: 'd',
+      points: 400,
+      },
+    ],
+    title: 'cd',
+    id: 2,
+  }
+]
+  
+
 
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 app.use(cors())
 
-app.get('/api/v1/todos', (req, res) => {
-  return res.json(DB.todos)
+app.get('/api/v1/game', (req, res) => {
+  return res.json(DB)
 })
 
-//api/v1/game
-
-app.post('/api/v1/todos', (req, res) => {
-  const newTodo = {
-    id: uuidv4(),
-    text: req.body.text,
-    completed: false
-  }
-  DB.todos.push(newTodo)
-  return res.json(newTodo)
-})
-
-app.delete('/api/v1/todos', (req, res) => {
-  const indexToDel = DB.todos.indexOf(DB.todos.find(el => el.id == req.body.id))
-  DB.todos.splice(indexToDel, 1)
- return res.json(DB.todos)
-})
-
-app.patch('/api/v1/todos', (req, res) => {
-  const currentTodo = DB.todos.find(todo => todo.id === req.body.id)
-  currentTodo.completed = !currentTodo.completed
-  return res.json(currentTodo)
-})
-
-app.put('/api/v1/todos', (req, res) => {
-  const currentTodo = DB.todos.find(todo => todo.id === req.body.id)
-  currentTodo.text = req.body.text
-  return res.json(currentTodo)
-})
-
+//validate <3
 
 
 app.listen(PORT, () => {
