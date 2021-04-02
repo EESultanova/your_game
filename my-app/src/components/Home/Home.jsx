@@ -3,6 +3,7 @@ import { useEffect } from 'react';
 import { Card } from 'antd';
 import { renderQuestions } from '../../redux/actionCreators/questionsAC'
 import Question from "../Question/Question";
+import Counter from "../Counter/Counter";
 
 
 function Home() {
@@ -19,7 +20,7 @@ function Home() {
   return (
     <>
       {
-        games.map((question) => <Question key={question.id} questions={question.questions} title={question.title} />)
+        games.map((question) => <Question key={question.id} status={question.status} questions={question.questions} title={question.title} />)
       }
       <Card
         className="username"
@@ -27,7 +28,8 @@ function Home() {
         style={{ width: 240 }}
         cover={<img alt="example" src="https://stuki-druki.com/biofoto/Anatoliy-Vasserman-01.jpg" />}
       >
-        Онотоле
+        Онотоле says:
+        <Counter/>
       </Card>
     </>
   )

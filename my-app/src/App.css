@@ -1,6 +1,6 @@
 
 
-* {
+#root {
   background: linear-gradient(
   180deg
   ,#000451 0,#183cf3 50%,#000451);
@@ -17,6 +17,12 @@
 
 .username {
   color:antiquewhite;
+  font-size: 1.3em;
+}
+
+.counter {
+  font-size: 1.3em;
+  color: darkred;
 }
 
 .modal {
