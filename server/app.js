@@ -13,12 +13,15 @@ let DB = [
       text: 'a',
       answ: 'a',
       points: 300,
+      status: 'a',
       },
       {
       id: 12,
       text: 'b',
       answ: 'b',
       points: 400,
+      status: 'b',
+
       },
     ],
     title: 'ab',
@@ -31,12 +34,15 @@ let DB = [
       text: 'c',
       answ: 'c',
       points: 300,
+      status: 'c',
+
       },
       {
       id: 22,
       text: 'd',
       answ: 'd',
       points: 400,
+      status: 'd',
       },
     ],
     title: 'cd',

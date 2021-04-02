@@ -13,9 +13,9 @@ import initState from './redux/initState';
 const store = createStore(rootReducer, initState(), composeWithDevTools())
 
 
-// store.subscribe(() => {
-//   window.localStorage.setItem('myApp', JSON.stringify(store.getState()))
-// })
+store.subscribe(() => {
+  window.localStorage.setItem('myApp', JSON.stringify(store.getState()))
+})
 
 ReactDOM.render(
   <React.StrictMode>

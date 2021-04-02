@@ -2,11 +2,11 @@ import { useDispatch, useSelector } from "react-redux"
 import { useEffect } from 'react';
 import { renderQuestions } from '../../redux/actionCreators/questionsAC'
 import Question from "../Question/Question";
+import Counter from "../Counter/Counter";
 
 
 function Home() {
   const games = useSelector(state => {
-    console.log('state', state)
     return state.questions
   })
   
@@ -19,11 +19,12 @@ function Home() {
   }, [])
 
   return (
+    <>
     <ul className="list-group pt-4">
-      {
-        games.map((question) => <Question key={question.id} question={question.questions} />)
-      }
+      {games.map((question) => <Question key={question.id} status={question.status} question={question.questions} />) }
     </ul>
+    <Counter/>
+    </>
   )
 }
 
