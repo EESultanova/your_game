@@ -20,7 +20,7 @@ function Form({id, onClose, text, answer, points}) {
   const submitHandler = (e) => {
     e.preventDefault()
     if (input) {
-      if (input == answer) {
+      if (input.toLowerCase() === answer.toLowerCase()) {
         setRes('CORRECT!!!1')
         dispatch(counterINC(points))
         setTimeout(() => {
@@ -39,9 +39,9 @@ function Form({id, onClose, text, answer, points}) {
   
   return(
     <>
-    <form onSubmit={submitHandler}>
-      <div>
-        <input onChange={inputHandler} placeholder="Здесь должен быть ваш ответ"></input>
+    <form className="pt-4" onSubmit={submitHandler}>
+      <div className="py-4">
+        <input onChange={inputHandler} placeholder="Ваш ответ"></input>
       </div>
       <button type="submit" className="btn btn-primary mx-1">Submit</button>
     </form>

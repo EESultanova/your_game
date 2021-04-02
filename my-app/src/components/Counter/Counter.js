@@ -8,7 +8,7 @@ function Counter () {
 
 
   return (
-    <div>
+    <div className="counter">
       Points: {counter}
     </div>
   )
