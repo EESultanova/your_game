@@ -1,5 +1,5 @@
 import { render } from "react-dom"
-import {  RENDER_ALL, ADD_ID } from "../types/questionsTypes"
+import {  RENDER_ALL, CHANGE_STATUS } from "../types/questionsTypes"
 
 
 export const renderQuestions = (questions) => {
@@ -9,3 +9,9 @@ export const renderQuestions = (questions) => {
   }
 }
 
+export const changeStatus = (id, key) => {
+  return {
+    type: CHANGE_STATUS,
+    payload: {id, key}
+  }
+}

@@ -1,15 +1,39 @@
 import { useDispatch } from "react-redux"
+import React, { useState } from 'react'
+import Modal from "../Modal/Modal"
+import Form from "../Form/Form"
+import {changeStatus} from '../../redux/actionCreators/questionsAC'
 
 
+function Question({key, question,status}) {
+  const dispatch = useDispatch()
+  
+  const [isOpen, setIsOpen] = useState(false)
+  const [questionId, setQuestionId] = useState(0)
+  const [questionText, setquestionText] = useState('')
+  const [questionAnswer, setquestionAnswer] = useState('')
+  const [questionPoints, setquestionPoints] = useState(0)
 
-function Question({key, question}) {
-  // const dispatch = useDispatch()
+function someFunc(id, text, answ, points) {
+  setIsOpen(true)
+  setQuestionId(id)
+  setquestionText(text)
+  setquestionAnswer(answ)
+  setquestionPoints(points)
+  dispatch(changeStatus(id, key))
+}
 
   return (
+    <>
    <div>
-    {question.map(el => <p>{el.text} {el.answ} {el.points}</p>)}
-
+        {question.map(el => <button  onClick={() => someFunc(el.id, el.text, el.answ, el.points)} className={status}>{el.points}</button>)}
+         <Modal open={isOpen} questionIdForModal={questionId} onClose={() => setIsOpen(false)}>
+         {questionText}
+         <Form  onClose={() => setIsOpen(false)} id={questionId} text={questionText} answer={questionAnswer} points={questionPoints}/>
+        </Modal>
    </div>
+    </>
+   
   )
 }
 
