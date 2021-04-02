@@ -6,7 +6,7 @@ function Question({ key, questions, title }) {
   const style = { background: '#0092ff', padding: '8px 0' };
 
   return (
-    <Row gutter={[8, 24]} >
+    <Row gutter={[8, 24]} align="middle" >
       <Col className="que" span={4}>
         {title}
       </Col>
